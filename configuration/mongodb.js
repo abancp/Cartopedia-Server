@@ -4,15 +4,12 @@ const connectionString = "mongodb+srv://abancpchengani:1%402%40Abancp@cartopedia
 const client = new MongoClient(connectionString);
 
 let connection;
-export const connect = () => {
-    return new Promise((resolve, reject) => {
-        try {
-            connection = client.connect();
-            resolve()
-        } catch (e) {
-            reject(e)
-        }
-    })
+
+try {
+    connection = await client.connect();
+    console.log("MongoDB Connected")
+} catch (e) {
+    console.error("MongoDB Not Connected", e);
 }
 
-export const db = connection.db("Cartopedia");
+export default  connection.db("Cartopedia");

@@ -1,4 +1,4 @@
-import {db} from "../configuration/mongodb.js"
+import db from "../configuration/mongodb.js"
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 const login=async(req,res)=>{

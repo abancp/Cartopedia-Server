@@ -1,4 +1,4 @@
-import {db} from "../configuration/mongodb.js";
+import db from "../configuration/mongodb.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 

@@ -8,8 +8,9 @@ const client = new MongoClient(connectionString);
 let connection;
 try {
   connection = await client.connect();
+  console.log("MongoDB Connected")
 } catch(e) {
-  console.error(e);
+  console.error("MongoDB Not Connected",e);
 }
 
 let db = connection.db("Cartopedia");
