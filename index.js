@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import dotenv from 'dotenv'
 import path from "path";
 import { fileURLToPath } from "url";
-import db from "./configuration/mongodb.js";
+import {connect} from "./configuration/mongodb.js";
 import adminRouter from "./routes/admin.js";
 import userRouter from "./routes/user.js";
 import companyRouter from "./routes/company.js";
@@ -40,7 +40,7 @@ app.use('/uplaod/product-details', verifyCompany, uplaodProductDetailed.array('f
 
 app.use((req, res) => res.status(404));
 
-db.connect((err) => err ? console.log("Mongo db Not conneted ", err) : console.log("Mongodb Conneted"))
+connect().then(()=>console.log("Mongodb Conneted")).catch((err)=>console.log("Mongo db Not conneted ", err))
 
 app.listen(process.env.PORT, () => console.log("Server Started : ",process.env.PORT));
 
