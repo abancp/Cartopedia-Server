@@ -99,5 +99,10 @@ router.get("product-details/folder-size/:id",(req,res)=>{
     fs.readdir("./public/product-details/"+req.params.id, (err, files) => res.json({folderSize:files.length}))
 })
 
+router.get('/test-db',(req,res)=>{
+    userFunctions.test().then((resp)=>{
+        res.json({resp})
+    })
+})
 
 export default router;

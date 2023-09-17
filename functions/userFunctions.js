@@ -271,5 +271,11 @@ export default {
                 resolve(product)
             })
         })
+    },
+    test:()=>{
+        return new Promise(async(resolve)=>{
+        let a = await db.collection('user').find().toArray()
+        resolve(a)
+        })
     }
 }
