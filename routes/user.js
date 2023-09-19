@@ -5,6 +5,7 @@ import getUserDetails from "../auth/getUserDetails.js";
 import userFunctions from "../functions/userFunctions.js";
 import verifyToken from "../middeleware/verifytoken.js";
 import fs from 'fs';
+import companyFunctions from "../functions/companyFunctions.js";
 
 const router = express.Router();
 
@@ -102,6 +103,12 @@ router.get("product-details/folder-size/:id",(req,res)=>{
 router.get('/test-db',(req,res)=>{
     userFunctions.test().then((resp)=>{
         res.json({resp})
+    })
+})
+
+router.get("/all-categories", (req, res) => {
+    companyFunctions.getAllCategories().then((categories) => {
+        res.json({ categories })
     })
 })
 
