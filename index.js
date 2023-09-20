@@ -29,6 +29,14 @@ app.use(cors({
     origin: 'https://cartopedia-app.netlify.com'
   }));
 
+  app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://cartopedia-app.netlify.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 app.use("/", userRouter);
 app.use("/admin", verifyAdmin, adminRouter);
 app.use("/company", verifyCompany, companyRouter);
