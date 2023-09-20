@@ -26,11 +26,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.resolve('./public')));
 app.use(cors({
-    origin: 'https://cartopedia-app.netlify.com'
+    origin: 'https://cartopedia-app.netlify.app'
   }));
 
-  app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://cartopedia-app.netlify.com');
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'https://cartopedia-app.netlify.app');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
